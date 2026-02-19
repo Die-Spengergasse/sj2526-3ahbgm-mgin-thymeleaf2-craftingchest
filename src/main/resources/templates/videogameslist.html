@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        table,th,td {
+            border: 3px solid mediumspringgreen;
+            margin: 10px;
+            padding: 5px;
+            p
+
+        }
+        tr{
+            background-color: forestgreen;
+        }
+        body{
+            background-color: aqua;
+        }
+        a{
+            color: Black;
+            border-style: dotted dashed;
+
+
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="v:${videogames}">
+                <td th:text="${v.getvName()}"></td>
+                <td th:text="${v.getvGenre()}"></td>
+                <td th:text="${v.getvReleaseDate()}"></td>
+                <td th:text="${v.getvPrice()}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/addvideogames">Add a new videogame</a>
+</body>
+</html>
