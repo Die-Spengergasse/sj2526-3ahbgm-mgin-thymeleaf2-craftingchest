@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/html" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>Greeting</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1>Hallo</h1>
+    <h1>Hello and welcome to the videogames Management Website</h1>
     Datum: <span th:text="${today}"></span>
     <div>
-        <a href="/patient/list">patient list</a>
+        <a href="/videogames/list">videogames-list</a>
+    </div>
+    <div>
+        <a href="/videogames/add"> </a>
     </div>
 </div>
 </body>

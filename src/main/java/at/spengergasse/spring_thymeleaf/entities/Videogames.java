@@ -1,10 +1,8 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+@Table
 @Entity
 public class Videogames {
     @Id
@@ -15,6 +13,7 @@ public class Videogames {
     @Column(name="v_genre")
     private String vGenre;
     @Column(name="v_releasedate")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private String vReleaseDate;
     @Column(name="v_price")
     private double vPrice;
