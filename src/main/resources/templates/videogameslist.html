@@ -11,7 +11,7 @@
         th{
             border:3px solid mediumspringgreen;
         }
-        a{
+        #hyperlinkbutton{
             color: cyan;
             border-style:dashed;
             border-color:cyan;
@@ -40,6 +40,7 @@
                 <th >Genre</th>
                 <th>Release Date</th>
                 <th>Price</th>
+                <th>Edit/delete</th>
             </tr>
             </thead>
             <tbody>
@@ -48,6 +49,7 @@
                 <td th:text="${v.getvGenre()}"></td>
                 <td th:text="${v.getvReleaseDate()}"></td>
                 <td th:text="${v.getvPrice()}"></td>
+                <td> <button th:href="@{videogames/edit(id=${v.vId})}" class="btn btn-outline-success">Edit</button> <button class="btn btn-outline-success">Delete</button></td>
             </tr>
             </tbody>
         </table>
@@ -55,7 +57,7 @@
 
     <div class="container text-center" >
 
-        <a th:href="@{/videogames/add}">Add a new videogame</a>
+        <a class="btn link-underline-opacity-0-hover" id="hyperlinkbutton" th:href="@{/videogames/add}">Add a new videogame</a>
     </div>
 
 </body>

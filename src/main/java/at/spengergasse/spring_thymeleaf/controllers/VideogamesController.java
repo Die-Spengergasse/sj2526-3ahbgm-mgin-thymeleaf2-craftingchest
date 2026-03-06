@@ -4,9 +4,7 @@ import at.spengergasse.spring_thymeleaf.entities.Videogames;
 import at.spengergasse.spring_thymeleaf.entities.VideogamesRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping ("/videogames")
@@ -27,9 +25,14 @@ public class VideogamesController {
             return"add_videogames";
         }
         @PostMapping("/add")
-    public String addVideogame(Videogames videogames){
+    public String addVideogame(@ModelAttribute("videogames") Videogames videogames){
             videogamesRepository.save(videogames);
             return "redirect:/videogames/list";
+        }
+        @GetMapping("/edit")
+    public String editVideogame(Model model, @RequestParam("value = \"id\"") int id){
+            model.addAttribute("videogames",videogamesRepository.findById(id));
+            return "edit_videogames";
         }
 
 }
