@@ -35,6 +35,7 @@ public class PatientController {
     @PostMapping("/add")
     public String addPatient(@ModelAttribute("patient") Patient patient) {
         patientRepository.save(patient);
-        return  "redirect:/patient/list";
+        return "redirect:/patient/list";
     }
 }
+
