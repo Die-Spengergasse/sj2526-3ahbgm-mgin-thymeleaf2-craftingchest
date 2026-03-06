@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        h1{
+            border-bottom:3px solid mediumspringgreen;
+            font-size:30px;
+            padding:10px;
+        }
+    </style>
 </head>
 <body>
+<h1 class="text text-center text-success"> Adding a new video game</h1>
+ <form th:action="@{/videogames/add}" th:object="${videogames}" method="post" data-bs-theme="dark">
+    <label class="text text-success">Videogame name</label>
+     <input id="input1 "type="text"  th:field="*{vName}"class="form-control text-success" placeholder="Enter the name of the videogame">
+     <label class="text text-success" >Videogame genre </label>
+    <input type="text" th:field="*{vGenre}" class="form-control text-success" placeholder="For example: Soulslike, Battle Royale, RPG...">
+     <label class="text text-success">Videogame release date</label>
+         <input type="date" th:field="*{vReleaseDate}" class="form-control text-success" placeholder="Enter the release date of the videogame">
+         <label class="text text-success"> Videogame price</label>
+         <input type="number" inputmode="decimal" th:field="*{vPrice}" class="form-control text-success" placeholder="For example:60.99">
 
+            <input type="submit" class="form-control btn btn-outline-success" value="Save">
+ </form>
 </body>
 </html>
