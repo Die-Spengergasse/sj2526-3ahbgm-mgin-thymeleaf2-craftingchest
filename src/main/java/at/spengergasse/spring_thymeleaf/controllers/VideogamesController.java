@@ -30,18 +30,23 @@ public class VideogamesController {
     @PostMapping("/add")
     public String addVideogame(@ModelAttribute("videogames") Videogames videogames) {
         videogamesRepository.save(videogames);
-        return "redirect:/list";
+        return "redirect:/videogames/list";
     }
 
-    @GetMapping("/edit")
-    public String editVideogame(Model model, @RequestParam("value = \"id\"") int id) {
+    @GetMapping("/edit/{id}")
+    public String editVideogame(Model model, @PathVariable Integer id) {
         model.addAttribute("videogames", videogamesRepository.findById(id));
         return "edit_videogames";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteVideogame(@PathVariable() int id) {
+    public String deleteVideogame(@PathVariable Integer id) {
         videogamesRepository.deleteById(id);
+        return "redirect:/videogames/list";
+    }
+    @PostMapping("/edit")
+    public String editVideogame(@ModelAttribute("videogames") Videogames videogames){
+        videogamesRepository.save(videogames);
         return "redirect:/videogames/list";
     }
 }

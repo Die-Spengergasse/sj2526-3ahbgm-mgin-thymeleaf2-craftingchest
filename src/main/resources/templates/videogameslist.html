@@ -49,7 +49,9 @@
                 <td th:text="${v.getvGenre()}"></td>
                 <td th:text="${v.getvReleaseDate()}"></td>
                 <td th:text="${v.getvPrice()}"></td>
-                <td> <button  class="btn btn-outline-success"><a th:href="@{videogames/edit(id=${v.vId})}">Edit</a></button> <button  class="btn btn-outline-success"><a th:href="@{videogames/delete/(id=${v.vId})}">Delete</a></button></td>
+                <td>  <a  class="btn btn-outline-success" th:href="@{/videogames/edit/{id}(id=${v.vId})}">Edit</a>
+                      <a class="btn btn-outline-success" th:href="@{/videogames/delete/{id}(id=${v.vId})}">Delete</a>
+                </td>
             </tr>
             </tbody>
         </table>
