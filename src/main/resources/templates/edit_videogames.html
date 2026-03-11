@@ -14,26 +14,48 @@
         <h1 class="text text-center text-success "> Edit Videogame</h1>
     </div>
      <div  class="card-body">
-         <table class="table table-striped table-dark" >
-             <thead class="thead-dark">
-             <tr>
-                 <th> Current Name</th>
-                 <th > Current Genre</th>
-                 <th> Current Release Date</th>
-                 <th> Current Price</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr>
-                 <td th:text="*{videogames.Vname}"></td>
-                 <td th:text="${vGenre()}"></td>
-                 <td th:text="${vReleaseDate()}"></td>
-                 <td th:text="${vPrice()}"></td>
+         <div class="container">
+             <div class="row">
+                 <div class="col">
+                     <p class="text text-success text-end">  Current Name:</p>
+                     <p class="text text-success text-end">Current Genre:</p>
+                     <p class="text text-success text-end">Current Release Date:</p>
+                     <p class="text text-success text-end">Current Price:</p>
+                 </div>
+                 <div class="col">
+                     <p class="text text-success text-start" th:text="${videogames.getvName()}"></p>
+                     <p class="text text-success text-start" th:text="${videogames.getvGenre()}"></p>
+                     <p class="text text-success text-start" th:text="${videogames.getvReleaseDate()}"></p>
+                     <p class="text text-success text-start" th:text="${videogames.getvPrice()}"></p>
+                 </div>
+                 <div class="col">
+                     <form th:action="@{/videogames/edit}" th:object="${videogames}" method="post" data-bs-theme="dark">
+                         <label style="visibility: hidden" type="number" th:field="*{vId}"></label>
+                         <label class="text text-success">New Name</label>
+                         <input type="text" th:field="*{vName}" class="form-control text-success" placeholder="Enter the  new name of the videogame">
+                         <label class="text text-success">New Genre</label>
+                         <input type="text" th:field="*{vGenre}" class="form-control text-success" placeholder="For example: Soulslike, Battle Royale, RPG...">
+                         <label class="text text-success">New Release Date</label>
+                         <input type="date" th:field="*{vReleaseDate}" class="form-control text-success" placeholder="Enter the release date of the videogame">
+                         <label class="text text-success"> New Price</label>
+                         <input type="number" inputmode="decimal" th:field="*{vPrice}" class="form-control text-success" placeholder="For example:60.99">
 
-             </tr>
-             </tbody>
+                         <input type="submit" class="form-control btn btn-outline-success mt-2" value="Save">
 
-         </table>
+                     </form>
+                 </div>
+             </div>
+
+         </div>
+
+
+
+
+
+
+
+
+
      </div>
  </div>
 </body>

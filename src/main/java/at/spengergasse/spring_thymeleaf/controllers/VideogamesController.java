@@ -35,7 +35,7 @@ public class VideogamesController {
 
     @GetMapping("/edit/{id}")
     public String editVideogame(Model model, @PathVariable Integer id) {
-        model.addAttribute("videogames", videogamesRepository.findById(id));
+        model.addAttribute("videogames", videogamesRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid videogame Id:" + id)));
         return "edit_videogames";
     }
 

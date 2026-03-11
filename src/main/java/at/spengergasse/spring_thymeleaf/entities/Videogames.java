@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Videogames {
     @Id
     @GeneratedValue
-    private int vId;
+    private Integer vId;
     @Column(name="v_name")
     private String vName;
     @Column(name="v_genre")
@@ -17,6 +17,16 @@ public class Videogames {
     private String vReleaseDate;
     @Column(name="v_price")
     private double vPrice;
+
+    public Videogames () {
+    }
+
+    public Videogames(String vName, String vGenre, String vReleaseDate, double vPrice) {
+        this.vName = vName;
+        this.vGenre = vGenre;
+        this.vReleaseDate = vReleaseDate;
+        this.vPrice = vPrice;
+    }
 
     public void setvId(int vId) {
         this.vId = vId;
