@@ -7,3 +7,5 @@ http://localhost:8080/videogames/list
 http://localhost:8080/videogames/add
 ## Edit videogames
 http://localhost:8080/videogames/edit/ --id of the videogame
+
+ Delete isn't accesible, because it just redirects instantly to the list
