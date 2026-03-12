@@ -30,7 +30,7 @@
                  </div>
                  <div class="col">
                      <form th:action="@{/videogames/edit}" th:object="${videogames}" method="post" data-bs-theme="dark">
-                         <label style="visibility: hidden" type="number" th:field="*{vId}"></label>
+                         <input style="visibility: hidden" type="number" th:field="*{vId}" th:value="*{vId}">
                          <label class="text text-success">New Name</label>
                          <input type="text" th:field="*{vName}" class="form-control text-success" placeholder="Enter the  new name of the videogame">
                          <label class="text text-success">New Genre</label>
